@@ -5,6 +5,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book_new = Book.new
     @post_comment = PostComment.new
+    unless ReadCount.find_by(user_id: current_user.id, book_id: @book.id)#ReadCountの中に、取得したbook_idとユーザーのidが一致するものが無いかを探す
+      current_user.read_counts.create(book_id: @book.id)#合致するものがなかった場合(falseの場合)にcurrent_user.read〜を実行する
+    end
   end
 
   def index
