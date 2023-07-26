@@ -1,0 +1,9 @@
+$('.daily_posts_table').html(` <!--jQueryセレクタで、daily_posts_tableクラスを持つHTML要素を選択しています。このクラスを持つ要素の内容が、後続のコードで置き換えられる-->
+  <h2>検索結果</h2>
+  <div class="card" >
+    <div class="card-header">投稿数</div>
+    <div class="card-body">
+      <%= j( @books.count ) %>
+    </div>
+  </div>
+`)

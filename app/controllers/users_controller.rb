@@ -28,6 +28,13 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+  
+  def daily_posts
+    user = User.find(params[:user_id])
+    @books = user.books.where(created_at: params[:created_at].to_date.all_day)
+    render :daily_posts_form
+  end
+
 
   private
 
