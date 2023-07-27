@@ -4,7 +4,7 @@
       <th></th>
       <th>Title</th>
       <th>Opinion</th>
-      <th colspan="4"></th>
+      <th colspan="5"></th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +20,7 @@
         <td id="comments-count">コメント数： <span id="comment_count"><%= book.post_comments.count %></span></td>
         <td><%= render "books/star", book: book %></td>
         <td>閲覧数：<%= book.read_counts.count %></td>
+        <td><%= l book.created_at %></td>
       </tr>
     <% end %>
   </tbody>
