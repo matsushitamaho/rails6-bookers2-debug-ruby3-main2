@@ -9,7 +9,7 @@
     <div class='col-md-8 offset-md-1'>
   		<h2>Book detail</h2>
   		<table class='table'>
-  		  <tr id="book_<%= @book.id %>">
+  		  <tr id="book_<%= @book.id %>" style="font-size:12px;">
           <td><%= link_to(@book.user) do %>
             <%= image_tag @book.user.get_profile_image, size:"100x100" %><br>
             <%= @book.user.name %>
@@ -19,6 +19,7 @@
           <td><%= @book.body %></td>
           <td class="favorite-btn"><%= render "favorites/favorite-btn", book: @book %></td>
           <td class="comments-count">コメント数：<span id="comment_count"><%= @book.post_comments.count %></span></td>
+          <td><%= render "star", book: @book %></td>
           <td>閲覧数：<%= @book.read_counts.count %></td>
           <% if @book.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
@@ -26,7 +27,7 @@
           <% end %>
         </tr>
       </table>
-      
+
       <div id="post-comments">
         <%= render "post_comments/index", book: @book %>
       </div>
