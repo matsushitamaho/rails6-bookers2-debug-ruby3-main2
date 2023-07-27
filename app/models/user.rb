@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :rooms, through: :entries
   has_many :read_counts, dependent: :destroy
+  has_many :group_users, dependent: :destroy
   
   #フォローした、されたの関係
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
