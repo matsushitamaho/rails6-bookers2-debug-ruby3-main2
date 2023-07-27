@@ -12,11 +12,24 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%= render 'layouts/search' %>
+    <% if user_signed_in? %>
+      <div class="container my-3">
+        <div class="row">
+          <div class="col">
+            <%= render 'layouts/search' %>
+          </div>
+          <div class="col">
+            <%= render 'tagsearches/tagsearch' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    
       <main>
         <%= yield %>
         <p id="notice"><%= notice %></p>
       </main>
+      
     <%= render 'layouts/footer' %>
   </body>
 </html>
